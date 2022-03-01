@@ -1,0 +1,418 @@
+/*aqui le vamos a dar estilo a la pagina web */
+:root{ /*esto es un pseudocodigo*/
+    /*paleta de colores*/
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --color_primario:#FFC107;
+    --secundario:#0097A7;
+    --gris:#757575;
+
+    --fuentePrincipal: 3.8rem; /* puedes poner cualquier valor en */
+}
+
+                    /*GLOBALES*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /*Esto me va ayudar a solucionar el problema de box*/
+    scroll-snap-type: y proximity;/*quiere decir que va hacer scroll de arriba hacia abajo*/
+    /*scroll-snap-type: x mandatory;/*si quiere hacer scroll en el eje de las x*/
+}
+
+*, *:before, *:after {/* "*" el asterizco quiere decir que se le va aplicar a todo el codigo*/
+    box-sizing: inherit;/* para que las imagenes tomen el tamaño que les doy */
+}
+p{
+    line-height: 2;
+}
+
+body{                          /*estos dos valores de html y body hace que los rem sean muy sencillos de utilizar y se van adapatar a esas panatallas con una densidad de pixeles muy alta*/
+    font-size: 16px;          /*1rem = 10px*/
+    font-family: 'Roboto', sans-serif; /*este es para aplicar la letra a todo*/
+    /*background-color: cornflowerblue; /*este es para darle color al fondo de la pagina web*/
+     background-image: linear-gradient(to top, #dfe9f3 0%, var(--blanco) 100% );  /*Este es para hacer un degradado en nel fondo de la pagina adentro van las especificacione
+    linear-gradient(aqui se especifica de  donde a donde va ir, aqui el color con el que va empezar y decimos que va empezar o desde abajo o desde arriba con porcentajes, aqui ponemos con que color va a terminar y el porcentaje)*/
+    min-height: 100%; /*La propiedad min-height se utiliza para definir la altura mínima de un elemento dado. Impide que el valor de la propiedad height llegue a ser más pequeña que la especificada en la altura mínima (min-height)*/
+}
+
+.parrafo{
+    color: #212121;
+}
+   h1{
+    font-size: 3.8rem;
+   }
+  h2{
+    font-size: 2.8rem;
+    }
+  h3{
+
+    font-size: 1.8rem;
+    }
+h1, h2, h3 {
+
+    text-align: center;  /*esto nos ayuda a ubicar el texto */
+}
+
+                    /*TIPOGRAFIA*/
+
+
+                /*TITULOS*/
+.Titulo {
+        
+    
+        font-weight: 400px;
+}
+
+h1.Titulo span{ /*estre mayor especificidad mayor gerarquia */
+    font-size: 2rem;
+}
+
+.subtitulo{
+
+    text-align: center;
+    font-size: 3.8rem;
+   }
+.subtitulo span{
+   
+       font-size: 2rem;
+       
+   }
+
+.contenedor{/*Este es el contenedor de la barra de navegacion */
+    max-width: 120rem;
+    /*
+    margin-top:0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    */ /*este de aqui es el mismo que de abajo*/
+    /*
+    margin: 0 auto 0 auto;
+    */ /*si se repite se puede reducir al de abjo*/
+
+    margin: 0 auto;
+
+}
+
+.sombra{/*este es la caja o la sombra */
+    -webkit-box-shadow: 6px 10px 18px -6px rgba(0,0,0,0.47);
+    -moz-box-shadow: 6px 10px 18px -6px rgba(0,0,0,0.47);
+    box-shadow: 6px 10px 18px -6px rgba(0,0,0,0.47);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+                        /*NAVEGACION*/
+.nav-bg{
+
+    background-color: var(--secundario);
+}
+.NavegacionPrincipal{
+ 
+    display: flex;
+    flex-direction: column; /*esto lo ponde en columnas*/
+    align-items:center ; /*me permite centrar verticalmente*/ 
+}
+
+@media(min-width:768px){ /*esto es el responsive web design*/ /*que de 768px se cumple lo que hay adentro*/
+
+   .NavegacionPrincipal{
+   flex-direction: row;
+   justify-content: space-around;     /*me permite separar los textos Horizontalmente y centrar*/
+   } 
+   
+}
+
+.NavegacionPrincipal a{
+
+    display:block;
+    text-align:center; /*Aqui centre el texto*/
+    color: var(--blanco);
+    text-decoration: none; /*aqui se quito la linea que tiene abajo los links*/
+    font-size: 2rem;/*esto es para agrandar la letra*/
+    font-weight: bolder; /* Para jugar con el grosor de la letra*/
+    padding: 1rem; /*amplia la columna */
+}
+
+.NavegacionPrincipal a:hover{/*(sudo-clases) este hover lo que me permite es que cuando pase el mause por encima de el se cambie*/
+
+    background-color: var(--color_primario);
+    color: var(--oscuro);
+}
+
+.NavegacionPrincipal a:last-of-type{
+    margin-bottom: 0;
+}
+
+
+@media(min-width:768px){
+   .NavegacionPrincipal a{
+       margin-bottom: 0;
+   }
+}
+
+/*programacion de imagenes*/
+
+.hero{
+
+        background-image: url(../img/hero.jpg);
+        background-repeat: no-repeat;/*Para que no repita las imagenes*/
+        background-size: cover; /*este cumple la funcion para que no se corte las imaganes y llene el espacion que falte*/
+        height: 450px;
+        padding: 20px;
+        position: relative;/*este tiene poscion relativa para que el contenido de hero tenga posicion absoluta*/
+        margin-bottom: 2rem;
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color:rgba(0,0,0, .6);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    /*==este es una forma de ubicar==*/
+
+    display: flex; 
+    flex-direction: column;
+    align-items: center;/*me centra el texto verticamente */
+    justify-content: center; /*me centro el texto horizontalmente*/
+}
+.contenido-hero h2, p{
+color: var(--blanco);
+}
+
+.contenido-hero .ubicacion{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.boton{
+    background-color: var(--secundario);    
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 4rem;/* este me baja el boton*/
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase; /*Esto va avoler el texto en mayuscula*/
+    font-weight: bold;/*ponen la letra en negrilla*/
+    border-radius: .5rem;
+    text-align: center; /*centra el texto del boton*/
+    width: 90%;
+    border: none;
+}
+
+
+.boton:hover{
+
+    cursor: pointer; /*me va poner la manito cuando este encima de el*/
+
+}
+
+
+/*Scroll snap*/
+.centrado,
+.NavegacionPrincipal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+                /*SERVICIOS*/
+@media(min-width:768px){
+
+    .servicios{
+        display:grid;
+        /*grid-template-columns: 300px 300px; 
+        grid-template-rows: 200px 800px;*/
+    
+        /*grid: 200px 800px / 300px 300px;/*esto es lo mismo que el codigo de arriba*/
+    
+        grid-template-columns: 1fr 1fr 1fr;   /* =*/    /* grid-template-columns: repeat(3, 1fr);*/   /*=*/   /*grid-template-columns: 33.3% 33.3% 33.3%;*/
+        column-gap: 2rem;  /*esto me da la separacion entre contenedores*/
+    }
+   
+}
+
+.servicio{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio .iconos{ 
+    display: flex;
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--color_primario);
+    border-radius: 50%;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+}   
+
+
+/**FROMULARIO**/
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100% );/*Utiliza el valor mas pequeño compara el tamaño que le ponen y coje el mas pequeño */
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;/* para quie sean en mayusculas*/
+    font-weight: 700;/* esto pone la letra mas en negrilla*/
+    margin-bottom: 2rem;
+    color: var(--color_primario);
+}
+
+@media (min-width:768px) {
+    .formulario {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+.contenedor_campos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.campos{
+
+    margin-bottom: 1rem;
+    width: 100%;
+
+}
+
+@media (min-width:480px) {
+    .campos {
+        display: flex;
+        align-items: center;
+    }
+}
+@media (min-width: 768px) {
+    .campos{
+        flex: 0 0 calc(50% - .5rem)
+    }
+}
+
+.campos label {
+
+    color: var(--blanco);
+    font-weight:bold;/*este es lo mismo que poner 700*/
+    margin-bottom: .5rem;
+    margin-right: 2rem;
+    display: block;
+    
+    }
+.input_text{
+    width: 100%;
+    border:none;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+@media (min-width:480px) {
+    .campo label {
+        flex: 0 0 90px;
+    }
+}
+                         /*RESPONSIVE WEB DISEING*/
+
+
+
+@media(min-width:768px){
+   .boton{
+        width: auto;   
+   }
+}
+
+
+
+.contenido-hero a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+                   
+
+.servicio h3{
+color: var(--secundario);
+font-weight: normal;
+}
+
+.servicio p{
+    line-height: 2;
+    
+}
+
+            
+@media(min-width:768px){
+  .contenedor_campos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto auto 20rem;
+    column-gap: 1rem ;
+
+
+}  
+
+
+
+.campos:nth-child(3),
+.campos:nth-child(4)
+{/*es una forma de llamar cuando haya muchas clases con el mismo nombre*/
+    grid-column: 1/3;/*esto es para que vaya de la columna 1 hasta la comuna 3*/
+
+}
+   
+}
+
+/*
+.campo input [type="text"]{
+    
+    width: 100%;
+} *//*este es una forma de llamar a un input*/
+
+.w-100{
+    width: 100%;
+}
+.W-100{
+    flex: 0 0 100%;
+}
+
+.flex{
+    display: flex;
+
+}
+.alinear-derecha {
+
+    justify-content: flex-end;/*lo va alinear al lado derecho*/
+}
+@media(min-width:768px){/*esto es para que se ponga pequeño*/
+
+    .w-100{
+        width:auto ;
+    }
+   
+}
+.campos textarea{
+    height: 20rem;
+    
+}
+
